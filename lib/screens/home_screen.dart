@@ -1,5 +1,11 @@
-import 'package:flutter/material.dart';
 import 'package:facebook_page/data/data.dart';
+import 'package:facebook_page/widgets/circle_button.dart';
+import 'package:facebook_page/widgets/post_container.dart';
+import 'package:facebook_page/widgets/stories.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import '../widgets/create_post_container.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,34 +14,39 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
         backgroundColor: Colors.white,
-        title: Text(
+        title: const Text(
           "facebook",
           style: TextStyle(
-              color: Colors.blue[700],
-              fontSize: 30.0,
-              fontWeight: FontWeight.bold),
+              color: Color.fromARGB(255, 1, 115, 168),
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+              letterSpacing: -1.2),
         ),
+        centerTitle: false,
         actions: [
-           Row(
-            children:  [
-               Padding(
-                padding:  const EdgeInsets.all(10),
-                child:  Icon(
-                  Icons.search,
-                  color: Colors.grey[600],
-                ),
-              ),
-               Padding(
-                padding: const EdgeInsets.all(10),
-                child: Icon(
-                  Icons.messenger_outline,
-                  color: Colors.grey[600],
-                ),
-              )
-            ],
+          CircleButton(
+            icon: Icons.search,
+            iconSize: 28,
+            press: () {},
+          ),
+          CircleButton(
+            icon: MdiIcons.facebookMessenger,
+            iconSize: 30,
+            press: () {},
           )
+        ],
+      ),
+      body: ListView(
+        children: [
+          CreatePostContaner(currentUser: currentUser),
+          const SizedBox(height: 10),
+          Stories(currentUser: currentUser, stories: stories),
+          const SizedBox(height: 5),
+          Column(
+            children: posts.map((post) => PostContainer(post: post)).toList(),
+          ),
         ],
       ),
     );

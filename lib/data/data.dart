@@ -3,65 +3,73 @@ import 'package:facebook_page/models/post.dart';
 import 'package:facebook_page/models/story.dart';
 
 User currentUser = const User(
-    name: "Kote Asatiani",
-    imageUrl:
-        "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+  name: 'Kotiko Asatiani',
+  imageUrl:
+      'https://scontent.ftbs5-2.fna.fbcdn.net/v/t1.18169-9/1391743_603079143062900_1606433576_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=FOCSFsX_C5sAX8YmXst&tn=gseNlHv__e8_ljPz&_nc_ht=scontent.ftbs5-2.fna&oh=00_AfCcTd_QUQlubH2VKVxmtc5nKC9Vx6Lpfibh5YbER6Na9Q&oe=6419A5CA',
+);
 
-final List<User> allUsers = [
+final List<User> onlineUsers = [
   const User(
-      name: "Luka Jojua",
-      imageUrl:
-          "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"),
-  const User(
-      name: "Luka Ruxadze",
-      imageUrl:
-          "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"),
-  const User(
-      name: "Ilia Chitishvili",
-      imageUrl:
-          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"),
-  const User(
-      name: "Elene Daraxvelidze",
-      imageUrl:
-          "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"),
-  const User(
-      name: "Meraba Surguladze",
-      imageUrl:
-          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"),
-  const User(
-      name: "Luka Varsimashvili",
-      imageUrl:
-          "https://images.unsplash.com/photo-1503249023995-51b0f3778ccf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=660&q=80"),
-  const User(
-      name: "Mariam Futkaradze",
-      imageUrl:
-          "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"),
-  const User(
-      name: 'Elizabeth Wong',
-      imageUrl:
-          'https://images.unsplash.com/photo-1515077678510-ce3bdf418862?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop&w=675&q=80'),
-  const User(
-    name: 'James Lathrop',
-    imageUrl:
-        'https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=592&q=80',
-  ),
-  const User(
-    name: 'Jessie Samson',
-    imageUrl:
-        'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-  ),
-  const User(
-    name: 'David Brooks',
+    name: 'Luka jojua',
     imageUrl:
         'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
   ),
   const User(
-    name: 'Jane Doe',
+    name: 'John Doe',
     imageUrl:
         'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
   ),
   const User(
-    name: 'Matthew Hinkle',
+    name: 'Jane Doe',
+    imageUrl:
+        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+  ),
+  const User(
+    name: 'john Smith',
+    imageUrl:
+        'https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+  ),
+  const User(
+    name: 'Napoleon',
+    imageUrl:
+        'https://images.unsplash.com/photo-1521119989659-a83eee488004?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=664&q=80',
+  ),
+  const User(
+    name: 'someone cool',
+    imageUrl:
+        'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
+  ),
+  const User(
+    name: 'rando',
+    imageUrl:
+        'https://images.unsplash.com/photo-1519631128182-433895475ffe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+  ),
+  const User(
+      name: 'stuff and stuff',
+      imageUrl:
+          'https://images.unsplash.com/photo-1515077678510-ce3bdf418862?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop&w=675&q=80'),
+  const User(
+    name: 'random name',
+    imageUrl:
+        'https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=592&q=80',
+  ),
+  const User(
+    name: 'stalin69420',
+    imageUrl:
+        "https://images.unsplash.com/photo-1647375233873-328cb125bcdc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=633&q=80",
+  ),
+  const User(
+    name: 'randoman420',
+    imageUrl:
+        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
+  ),
+  const User(
+    name: 'very cool name',
+    imageUrl:
+        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
+  ),
+  const User(
+    name: 'batman',
     imageUrl:
         'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1331&q=80',
   ),
@@ -71,17 +79,17 @@ final List<User> allUsers = [
         'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80',
   ),
   const User(
-    name: 'Ed Morris',
+    name: 'cool dude idk',
     imageUrl:
         'https://images.unsplash.com/photo-1521119989659-a83eee488004?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=664&q=80',
   ),
   const User(
-    name: 'Carolyn Duncan',
+    name: 'ching man',
     imageUrl:
         'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
   ),
   const User(
-    name: 'Paul Pinnock',
+    name: 'randoman69',
     imageUrl:
         'https://images.unsplash.com/photo-1519631128182-433895475ffe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
   ),
@@ -90,69 +98,69 @@ final List<User> allUsers = [
       imageUrl:
           'https://images.unsplash.com/photo-1515077678510-ce3bdf418862?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop&w=675&q=80'),
   const User(
-    name: 'James Lathrop',
+    name: 'stalin69420',
     imageUrl:
-        'https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=592&q=80',
+        "https://images.unsplash.com/photo-1647375233873-328cb125bcdc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=633&q=80",
   ),
   const User(
-    name: 'Jessie Samson',
+    name: 'Martin luther King',
     imageUrl:
         'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
   ),
 ];
 
-List<Story> stories = [
+final List<Story> stories = [
   Story(
-    user: allUsers[2],
+    user: onlineUsers[2],
     imageUrl:
-        'https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80',
+        'https://images.unsplash.com/photo-1676825796827-7b604b9213fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80',
   ),
   Story(
-    user: allUsers[6],
+    user: onlineUsers[6],
+    imageUrl:
+        'https://images.unsplash.com/photo-1676806729754-0146d35a2439?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80',
+    isViewed: true,
+  ),
+  Story(
+    user: onlineUsers[3],
+    imageUrl:
+        'https://images.unsplash.com/photo-1676729888436-cfc1b1466cbf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+  ),
+  Story(
+    user: onlineUsers[9],
+    imageUrl:
+        'https://images.unsplash.com/photo-1676806995068-fe6c530423dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    isViewed: true,
+  ),
+  Story(
+    user: onlineUsers[7],
+    imageUrl:
+        'https://images.unsplash.com/photo-1670272499232-d6c55af87386?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+  ),
+  Story(
+    user: onlineUsers[2],
+    imageUrl:
+        'https://images.unsplash.com/photo-1676805534914-fa461aafdf19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=415&q=80',
+  ),
+  Story(
+    user: onlineUsers[6],
     imageUrl:
         'https://images.unsplash.com/photo-1499363536502-87642509e31b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
     isViewed: true,
   ),
   Story(
-    user: allUsers[3],
+    user: onlineUsers[3],
     imageUrl:
         'https://images.unsplash.com/photo-1497262693247-aa258f96c4f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=624&q=80',
   ),
   Story(
-    user: allUsers[9],
+    user: onlineUsers[9],
     imageUrl:
         'https://images.unsplash.com/photo-1496950866446-3253e1470e8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
     isViewed: true,
   ),
   Story(
-    user: allUsers[7],
-    imageUrl:
-        'https://images.unsplash.com/photo-1475688621402-4257c812d6db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80',
-  ),
-  Story(
-    user: allUsers[2],
-    imageUrl:
-        'https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80',
-  ),
-  Story(
-    user: allUsers[6],
-    imageUrl:
-        'https://images.unsplash.com/photo-1499363536502-87642509e31b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-    isViewed: true,
-  ),
-  Story(
-    user: allUsers[3],
-    imageUrl:
-        'https://images.unsplash.com/photo-1497262693247-aa258f96c4f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=624&q=80',
-  ),
-  Story(
-    user: allUsers[9],
-    imageUrl:
-        'https://images.unsplash.com/photo-1496950866446-3253e1470e8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-    isViewed: true,
-  ),
-  Story(
-    user: allUsers[7],
+    user: onlineUsers[7],
     imageUrl:
         'https://images.unsplash.com/photo-1475688621402-4257c812d6db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80',
   ),
@@ -161,17 +169,17 @@ List<Story> stories = [
 final List<Post> posts = [
   Post(
     user: currentUser,
-    caption: 'Check out these cool puppers',
+    caption: 'comminism is gay',
     timeAgo: '58m',
-    imageUrl: 'https://images.unsplash.com/photo-1525253086316-d0c936c814f8',
-    likes: 1202,
-    comments: 184,
-    shares: 96,
+    imageUrl:
+        'https://images.unsplash.com/photo-1619965375772-32480b549b7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    likes: 100000000,
+    comments: 90004,
+    shares: 78896,
   ),
   Post(
-    user: allUsers[5],
-    caption:
-        'Please enjoy this placeholder text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    user: onlineUsers[5],
+    caption: "kote is right communism is hella gay",
     timeAgo: '3hr',
     imageUrl: null,
     likes: 683,
@@ -179,43 +187,41 @@ final List<Post> posts = [
     shares: 18,
   ),
   Post(
-    user: allUsers[4],
-    caption: 'This is a very good boi.',
+    user: onlineUsers[4],
+    caption: 'check out this good looking napoleon.',
     timeAgo: '8hr',
     imageUrl:
-        'https://images.unsplash.com/photo-1575535468632-345892291673?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
+        'https://images.unsplash.com/photo-1587122569949-ae6e755c6bdc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=885&q=80',
     likes: 894,
     comments: 201,
     shares: 27,
   ),
   Post(
-    user: allUsers[3],
-    caption: 'Adventure 🏔',
+    user: onlineUsers[3],
+    caption: 'man i wish i had some napoleon',
     timeAgo: '15hr',
-    imageUrl:
-        'https://images.unsplash.com/photo-1573331519317-30b24326bb9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-    likes: 722,
-    comments: 183,
+    imageUrl: null,
+    likes: 69,
+    comments: 420,
     shares: 42,
   ),
   Post(
-    user: allUsers[0],
-    caption:
-        'More placeholder text for the soul: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    user: onlineUsers[0],
+    caption: "check out this view",
     timeAgo: '1d',
-    imageUrl: null,
+    imageUrl:
+        "https://images.unsplash.com/photo-1563284223-333497472e88?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80",
     likes: 482,
     comments: 37,
     shares: 9,
   ),
   Post(
-    user: allUsers[9],
-    caption: 'A classic.',
+    user: onlineUsers[9],
+    caption: 'communism vs fascism round 2 if we hit 1 like',
     timeAgo: '1d',
-    imageUrl:
-        'https://images.unsplash.com/reserve/OlxPGKgRUaX0E1hg3b3X_Dumbo.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-    likes: 1523,
-    shares: 129,
-    comments: 301,
+    imageUrl: null,
+    likes: 1,
+    shares: 1941,
+    comments: 30000000,
   )
 ];
