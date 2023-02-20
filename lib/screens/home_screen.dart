@@ -22,7 +22,8 @@ class HomeScreen extends StatelessWidget {
               color: Color.fromARGB(255, 1, 115, 168),
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              letterSpacing: -1.2),
+              letterSpacing: -1.2,
+          ),
         ),
         centerTitle: false,
         actions: [
@@ -35,10 +36,11 @@ class HomeScreen extends StatelessWidget {
             icon: MdiIcons.facebookMessenger,
             iconSize: 30,
             press: () {},
-          )
+          ),
         ],
       ),
       body: ListView(
+       physics: const BouncingScrollPhysics(),
         children: [
           CreatePostContaner(currentUser: currentUser),
           const SizedBox(height: 10),
