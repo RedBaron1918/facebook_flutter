@@ -1,4 +1,5 @@
 import 'package:facebook_page/data/data.dart';
+import 'package:facebook_page/screens/image_screen.dart';
 import 'package:facebook_page/widgets/circle_button.dart';
 import 'package:facebook_page/widgets/post_container.dart';
 import 'package:facebook_page/widgets/stories.dart';
@@ -47,7 +48,7 @@ class HomeScreen extends StatelessWidget {
           Stories(currentUser: currentUser, stories: stories),
           const SizedBox(height: 5),
           Column(
-            children: posts.map((post) => PostContainer(post: post)).toList(),
+            children: posts.map((post) => PostContainer(post: post,call: ()=> Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ImageScreen(story: post,))),)).toList(),
           ),
         ],
       ),

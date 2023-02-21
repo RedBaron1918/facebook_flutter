@@ -5,8 +5,9 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 class PostContainer extends StatelessWidget {
   final Post post;
-
-  const PostContainer({super.key, required this.post});
+   final Function? call;
+  
+  const PostContainer({super.key, required this.post,this.call});
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +36,17 @@ class PostContainer extends StatelessWidget {
             ),
           ),
           post.imageUrl != null
-              ? Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: Image(image: NetworkImage('${post.imageUrl}')),
-                )
+              ? InkWell(
+                onTap: (){
+                   if (call != null) {
+                   call!();
+                        }
+                },
+                child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: Image(image: NetworkImage('${post.imageUrl}')),
+                  ),
+              )
               : const SizedBox.shrink(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
