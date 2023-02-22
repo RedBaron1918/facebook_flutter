@@ -9,7 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../widgets/create_post_container.dart';
 import '../widgets/scroll_to_hide.dart';
-
+import 'package:dismissible_page/dismissible_page.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -84,8 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 final post = posts[index];
                 return PostContainer(
                   post: post,
-                  call: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => PostImageScreen(post: post))),
+                  call: ()=>  context.pushTransparentRoute(PostImageScreen(post: post))
                 );
               },
               childCount: posts.length,
