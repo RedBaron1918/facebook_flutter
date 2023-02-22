@@ -9,6 +9,7 @@ class MyBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Center(
       child: BottomNavigationBar(
         showSelectedLabels: false,
@@ -19,8 +20,8 @@ class MyBottomNavigationBar extends StatelessWidget {
           const BottomNavigationBarItem(
               icon: Icon(Icons.people), label: 'people'),
           const BottomNavigationBarItem(
-              icon: Icon(MdiIcons.television), label: 'television'),
-          const BottomNavigationBarItem(icon: Icon(Icons.shopify), label: 'shop'),
+              icon: Icon(Icons.live_tv_rounded), label: 'television'),
+          const BottomNavigationBarItem(icon: Icon(Icons.storefront), label: 'shop'),
           const BottomNavigationBarItem(icon: Icon(MdiIcons.bell), label: 'bell'),
           BottomNavigationBarItem(
               icon: SizedBox(

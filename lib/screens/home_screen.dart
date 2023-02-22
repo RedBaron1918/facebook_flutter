@@ -1,5 +1,5 @@
 import 'package:facebook_page/data/data.dart';
-import 'package:facebook_page/screens/image_screen.dart';
+import 'package:facebook_page/screens/post_image_screen.dart';
 import 'package:facebook_page/widgets/bottom_navigation.dart';
 import 'package:facebook_page/widgets/circle_button.dart';
 import 'package:facebook_page/widgets/post_container.dart';
@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return PostContainer(
                   post: post,
                   call: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ImageScreen(story: post))),
+                      builder: (context) => PostImageScreen(post: post))),
                 );
               },
               childCount: posts.length,
