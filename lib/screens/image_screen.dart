@@ -1,5 +1,4 @@
 import 'package:facebook_page/models/story.dart';
-import 'package:facebook_page/models/user.dart';
 import 'package:facebook_page/widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
 class ImageScreen extends StatelessWidget {
@@ -10,12 +9,13 @@ class ImageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black12,
       appBar: AppBar(
         title: Text(
           story.user.name,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.grey[400],
+        backgroundColor: Colors.black38,
         leading: Padding(
           padding: const EdgeInsets.all(12),
           child: ProfileAvatar(

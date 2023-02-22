@@ -36,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: const MyBottomNavigationBar(),
       ),
       body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         controller: controller,
         slivers: [
           SliverAppBar(

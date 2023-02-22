@@ -44,7 +44,7 @@ class PostContainer extends StatelessWidget {
                 },
                 child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: Image(image: NetworkImage('${post.imageUrl}')),
+                    child: Hero(tag: "${post.imageUrl}",child: Image(image: NetworkImage("${post.imageUrl}"))),
                   ),
               )
               : const SizedBox.shrink(),
