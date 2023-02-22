@@ -19,18 +19,24 @@ class ImageScreen extends StatelessWidget {
                     imageUrl: story.user.imageUrl,
           ),
         ),
-        
-      ),
-      body: GestureDetector(
-        onTap: () {
+        actions: [
+          Padding(padding: const EdgeInsetsDirectional.symmetric(horizontal: 10),child: GestureDetector(
+            onTap: () {
           Navigator.pop(context);
         },
-        child: Center(
+        child: const Icon(Icons.close),
+          ),),
+          
+        ],
+        
+      ),
+      body:
+         Center(
           child: Image.network(
             '${story?.imageUrl}',
           ),
         ),
-      ),
-    );
+      );
+    
   }
 }

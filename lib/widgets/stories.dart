@@ -14,7 +14,10 @@ class Stories extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 200,
-      child: ListView.builder(
+      child: ListView.builder(  
+      physics: const BouncingScrollPhysics(
+        parent: AlwaysScrollableScrollPhysics(),
+        ),
         itemBuilder: (context, index) {
           if (index == 0) {
             return Padding(
