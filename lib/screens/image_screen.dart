@@ -8,7 +8,8 @@ class ImageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Dismissible(key: Key(story.user.name), direction: DismissDirection.down,onDismissed:(_)=> Navigator.pop(context) ,child: 
+    Scaffold(
       backgroundColor: Colors.black12,
       appBar: AppBar(
         title: Text(
@@ -39,6 +40,7 @@ class ImageScreen extends StatelessWidget {
           story.imageUrl,
         ),
       ),
+    )
     );
   }
 }
