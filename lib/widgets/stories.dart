@@ -14,9 +14,9 @@ class Stories extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 200,
-      child: ListView.builder(  
-      physics: const BouncingScrollPhysics(
-        parent: AlwaysScrollableScrollPhysics(),
+      child: ListView.builder(
+        physics: const BouncingScrollPhysics(
+          parent: AlwaysScrollableScrollPhysics(),
         ),
         itemBuilder: (context, index) {
           if (index == 0) {
@@ -28,14 +28,15 @@ class Stories extends StatelessWidget {
           final Story story = stories[index - 1];
           return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: _StoryCard(story: story,call: ()=>Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              ImageScreen(story: story),
-                        ),
-                         )
-                         ,)
-          );
+              child: _StoryCard(
+                story: story,
+                call: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        ImageScreen(story: story, index: index - 1),
+                  ),
+                ),
+              ));
         },
         itemCount: 1 + stories.length,
         scrollDirection: Axis.horizontal,
@@ -51,13 +52,13 @@ class _StoryCard extends StatelessWidget {
   final Story? story;
   final Function? call;
 
-  const _StoryCard({this.isAddStory = false, this.currentUser, this.story,this.call});
+  const _StoryCard(
+      {this.isAddStory = false, this.currentUser, this.story, this.call});
   @override
   Widget build(BuildContext context) {
-    
     return InkWell(
       onTap: () {
-          if (call != null) {
+        if (call != null) {
           call!();
         }
       },
