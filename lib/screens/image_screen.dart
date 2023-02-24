@@ -57,28 +57,28 @@ class _ImageScreenState extends State<ImageScreen> {
             ),
           ],
         ),
-        body: PageView.builder(
-          controller: _pageController,
-          itemCount: stories.length,
-          onPageChanged: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
+        body: GestureDetector(
+          onHorizontalDragEnd: (details) {
+            final double velocity = details.velocity.pixelsPerSecond.dx;
+            if (velocity > 0) {
+              _pageController.previousPage(
+                  duration: const Duration(milliseconds: 150),
+                  curve: Curves.easeInOut);
+            } else if (velocity < 0) {
+              _pageController.nextPage(
+                  duration: const Duration(milliseconds: 150),
+                  curve: Curves.easeInOut);
+            }
           },
-          itemBuilder: (context, index) => GestureDetector(
-            onHorizontalDragEnd: (details) {
-              final double velocity = details.velocity.pixelsPerSecond.dx;
-              if (velocity > 0) {
-                _pageController.previousPage(
-                    duration: const Duration(milliseconds: 250),
-                    curve: Curves.easeInOut);
-              } else if (velocity < 0) {
-                _pageController.nextPage(
-                    duration: const Duration(milliseconds: 250),
-                    curve: Curves.easeInOut);
-              }
+          child: PageView.builder(
+            controller: _pageController,
+            itemCount: stories.length,
+            onPageChanged: (index) {
+              setState(() {
+                _currentIndex = index;
+              });
             },
-            child: Image.network(stories[index].imageUrl),
+            itemBuilder: (context, index) => Image.network(stories[index].imageUrl),
           ),
         ),
       ),
