@@ -2,6 +2,8 @@ import 'package:facebook_page/data/data.dart';
 import 'package:facebook_page/models/story.dart';
 import 'package:facebook_page/widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
+
+
 class ImageScreen extends StatefulWidget {
   final Story story;
   final int index;
@@ -10,7 +12,7 @@ class ImageScreen extends StatefulWidget {
       : super(key: key);
 
   @override
-  _ImageScreenState createState() => _ImageScreenState();
+  State<ImageScreen> createState() => _ImageScreenState();
 }
 
 class _ImageScreenState extends State<ImageScreen> {
@@ -78,7 +80,16 @@ class _ImageScreenState extends State<ImageScreen> {
                 _currentIndex = index;
               });
             },
-            itemBuilder: (context, index) => Image.network(stories[index].imageUrl),
+            itemBuilder: (context, index) => Image.network(stories[index].imageUrl,loadingBuilder: (BuildContext context, Widget child,
+                ImageChunkEvent? loadingProgress) {
+              if (loadingProgress == null) {
+                return child;
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },),
           ),
         ),
       ),
