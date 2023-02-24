@@ -2,6 +2,7 @@ import 'package:facebook_page/data/data.dart';
 import 'package:facebook_page/models/story.dart';
 import 'package:facebook_page/widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 
 class ImageScreen extends StatefulWidget {
   final Story story;
@@ -28,14 +29,14 @@ class _ImageScreenState extends State<ImageScreen> {
       backgroundColor: Colors.black12,
       appBar: AppBar(
         title: Text(
-          widget.story.user.name,
+          stories[_currentIndex].user.name,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.black38,
         leading: Padding(
           padding: const EdgeInsets.all(12),
           child: ProfileAvatar(
-            imageUrl: widget.story.user.imageUrl,
+            imageUrl: stories[_currentIndex].user.imageUrl,
           ),
         ),
         actions: [
@@ -52,22 +53,42 @@ class _ImageScreenState extends State<ImageScreen> {
       ),
       body: Center(
         child: GestureDetector(
-          onPanUpdate: (details) {
-            // check the direction of the swipe and update the current index
-            if (details.delta.dx > 0) {
+          dragStartBehavior: DragStartBehavior.down,
+          onHorizontalDragEnd: (details) {
+            final double velocity = details.velocity.pixelsPerSecond.dx;
+            if (velocity > 0) {
+              // swiped right
               setState(() {
                 _currentIndex =
                     (_currentIndex - 1).clamp(0, stories.length - 1);
               });
-            } else if (details.delta.dx < 0) {
+            } else if (velocity < 0) {
+              // swiped left
               setState(() {
                 _currentIndex =
                     (_currentIndex + 1).clamp(0, stories.length - 1);
               });
             }
           },
+          behavior: HitTestBehavior.opaque,
           child: Image.network(
             stories[_currentIndex].imageUrl,
+            loadingBuilder: (BuildContext context, Widget child,
+                ImageChunkEvent? loadingProgress) {
+              if (loadingProgress == null) {
+                return child;
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+            errorBuilder:
+                (BuildContext context, Object error, StackTrace? stackTrace) {
+              return Center(
+                child: Text('Failed to load image'),
+              );
+            },
           ),
         ),
       ),
