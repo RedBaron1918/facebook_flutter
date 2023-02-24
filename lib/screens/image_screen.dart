@@ -2,7 +2,6 @@ import 'package:facebook_page/data/data.dart';
 import 'package:facebook_page/models/story.dart';
 import 'package:facebook_page/widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 
 class ImageScreen extends StatefulWidget {
   final Story story;
@@ -53,17 +52,14 @@ class _ImageScreenState extends State<ImageScreen> {
       ),
       body: Center(
         child: GestureDetector(
-          dragStartBehavior: DragStartBehavior.down,
           onHorizontalDragEnd: (details) {
             final double velocity = details.velocity.pixelsPerSecond.dx;
             if (velocity > 0) {
-              // swiped right
               setState(() {
                 _currentIndex =
                     (_currentIndex - 1).clamp(0, stories.length - 1);
               });
             } else if (velocity < 0) {
-              // swiped left
               setState(() {
                 _currentIndex =
                     (_currentIndex + 1).clamp(0, stories.length - 1);
