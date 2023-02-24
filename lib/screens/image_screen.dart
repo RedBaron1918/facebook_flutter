@@ -25,7 +25,7 @@ class _ImageScreenState extends State<ImageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Dismissible(key: Key(widget.story.user.name), direction: DismissDirection.down,onDismissed:(_)=> Navigator.pop(context) ,child:  Scaffold(
       backgroundColor: Colors.black12,
       appBar: AppBar(
         title: Text(
@@ -85,13 +85,14 @@ class _ImageScreenState extends State<ImageScreen> {
             },
             errorBuilder:
                 (BuildContext context, Object error, StackTrace? stackTrace) {
-              return Center(
+              return const Center(
                 child: Text('Failed to load image'),
               );
             },
           ),
         ),
       ),
+    )
     );
   }
 }
