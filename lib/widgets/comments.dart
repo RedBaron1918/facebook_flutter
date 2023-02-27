@@ -138,6 +138,7 @@ class _CommentsState extends State<Comments> {
                               widget.post.comment!.add(newComment);
                             });
                             commentController.clear();
+                            FocusScope.of(context).unfocus();
                           }
                         },
                         icon: const Icon(Icons.send),
