@@ -233,17 +233,32 @@ final List<Post> posts = [
   )
 ];
 final List<Comment> comments = [
-  Comment(user: onlineUsers[0], comment: "very cool"),
-  Comment(user: onlineUsers[1], comment: "very cool"),
-  Comment(user: onlineUsers[2], comment: "very cool"),
-  Comment(user: onlineUsers[3], comment: "very cool"),
+  Comment(user: onlineUsers[0], comment: "Amen Brother!"),
+  Comment(
+      user: onlineUsers[1],
+      comment:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. LoremLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem"),
+  Comment(user: onlineUsers[2], comment: "something very nice and cool idk"),
+  Comment(
+      user: onlineUsers[3],
+      comment:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem"),
   Comment(
       user: onlineUsers[4],
       comment:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."),
-  Comment(user: onlineUsers[5], comment: "very cool"),
-  Comment(user: onlineUsers[6], comment: "very cool"),
-  Comment(user: onlineUsers[7], comment: "very cool"),
-  Comment(user: onlineUsers[8], comment: "very cool"),
-  Comment(user: onlineUsers[9], comment: "very cool"),
+  Comment(user: onlineUsers[5], comment: "very random and interesting stuff"),
+  Comment(
+      user: onlineUsers[6], comment: "man i would love to have cool mustache"),
+  Comment(
+      user: onlineUsers[7],
+      comment:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem"),
+  Comment(
+      user: onlineUsers[8],
+      comment: "wow this post just changed my life thank you kote"),
+  Comment(
+      user: onlineUsers[9],
+      comment:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem"),
 ];

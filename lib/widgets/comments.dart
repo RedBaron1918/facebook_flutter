@@ -1,6 +1,5 @@
 import 'package:facebook_page/models/post.dart';
 import 'package:facebook_page/widgets/comment_container.dart';
-import 'package:facebook_page/widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:facebook_page/data/data.dart';
 import "package:facebook_page/models/comment.dart";
@@ -77,9 +76,9 @@ class _CommentsState extends State<Comments> {
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: comments.length,
+                itemCount: widget.post.comment!.length,
                 itemBuilder: (BuildContext context, int index) {
-                  Comment comment = comments[index];
+                  Comment comment = widget.post.comment![index];
                   return CommentSection(
                       image: comment.user.imageUrl,
                       name: comment.user.name,
@@ -98,8 +97,14 @@ class _CommentsState extends State<Comments> {
                       child: TextFormField(
                         onFieldSubmitted: (value) {
                           String commentValue = commentController.text;
-                          print(commentValue);
-                          commentController.clear();
+                          if (commentValue.isNotEmpty) {
+                            var newComment = Comment(
+                                user: currentUser, comment: commentValue);
+                            setState(() {
+                              widget.post.comment!.add(newComment);
+                            });
+                            commentController.clear();
+                          }
                         },
                         controller: commentController,
                         decoration: InputDecoration(
@@ -125,11 +130,15 @@ class _CommentsState extends State<Comments> {
                       ),
                       child: IconButton(
                         onPressed: () {
-                          var commentValue = commentController.text;
-                          Comment newComment =
-                              Comment(user: currentUser, comment: commentValue);
-                          widget.post.comment!.add(newComment);
-                          commentController.clear();
+                          String commentValue = commentController.text;
+                          if (commentValue.isNotEmpty) {
+                            var newComment = Comment(
+                                user: currentUser, comment: commentValue);
+                            setState(() {
+                              widget.post.comment!.add(newComment);
+                            });
+                            commentController.clear();
+                          }
                         },
                         icon: const Icon(Icons.send),
                         color: Colors.white,
