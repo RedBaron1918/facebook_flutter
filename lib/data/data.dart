@@ -2,6 +2,7 @@ import 'package:facebook_page/models/user.dart';
 import 'package:facebook_page/models/post.dart';
 import 'package:facebook_page/models/story.dart';
 import 'package:facebook_page/models/comment.dart';
+
 User currentUser = const User(
   name: 'Kotiko Asatiani',
   imageUrl:
@@ -169,60 +170,66 @@ final List<Story> stories = [
 final List<Post> posts = [
   Post(
     user: currentUser,
+    comment: [...comments],
     caption: 'comminism is gay',
     timeAgo: '58m',
     imageUrl:
         'https://images.unsplash.com/photo-1619965375772-32480b549b7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
     likes: 100000000,
-    comments: 90004,
+    commentSum: 90004,
     shares: 78896,
   ),
   Post(
     user: onlineUsers[5],
+    comment: [...comments],
     caption: "kote is right communism is hella gay",
     timeAgo: '3hr',
     imageUrl: null,
     likes: 1083,
-    comments: 79,
+    commentSum: 79,
     shares: 18,
   ),
   Post(
     user: onlineUsers[4],
+    comment: [...comments],
     caption: 'check out this good looking napoleon.',
     timeAgo: '8hr',
     imageUrl:
         'https://images.unsplash.com/photo-1587122569949-ae6e755c6bdc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=885&q=80',
     likes: 894,
-    comments: 201,
+    commentSum: 201,
     shares: 27,
   ),
   Post(
     user: onlineUsers[3],
+    comment: [...comments],
     caption: 'man i wish i had some napoleon',
     timeAgo: '15hr',
     imageUrl: null,
     likes: 69,
-    comments: 420,
+    commentSum: 420,
     shares: 42,
   ),
   Post(
     user: onlineUsers[0],
+    comment: [...comments],
     caption: "check out this view",
     timeAgo: '1d',
     imageUrl:
         "https://images.unsplash.com/photo-1563284223-333497472e88?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80",
     likes: 482,
-    comments: 37,
+    commentSum: 37,
     shares: 9,
   ),
   Post(
     user: onlineUsers[9],
+    comment: [...comments],
     caption: 'communism vs fascism round 2 if we hit 1 like',
     timeAgo: '1d',
     imageUrl: null,
     likes: 1,
     shares: 1941,
-    comments: 30000000,
+    commentSum: 30000000,
   )
 ];
 final List<Comment> comments = [
@@ -230,11 +237,13 @@ final List<Comment> comments = [
   Comment(user: onlineUsers[1], comment: "very cool"),
   Comment(user: onlineUsers[2], comment: "very cool"),
   Comment(user: onlineUsers[3], comment: "very cool"),
-  Comment(user: onlineUsers[4], comment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."),
+  Comment(
+      user: onlineUsers[4],
+      comment:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."),
   Comment(user: onlineUsers[5], comment: "very cool"),
   Comment(user: onlineUsers[6], comment: "very cool"),
   Comment(user: onlineUsers[7], comment: "very cool"),
   Comment(user: onlineUsers[8], comment: "very cool"),
   Comment(user: onlineUsers[9], comment: "very cool"),
-
 ];

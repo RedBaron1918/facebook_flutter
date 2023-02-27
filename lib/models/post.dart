@@ -1,3 +1,4 @@
+import 'package:facebook_page/models/comment.dart';
 import 'package:facebook_page/models/user.dart';
 
 class Post {
@@ -6,16 +7,17 @@ class Post {
   final String timeAgo;
   final String? imageUrl;
   final int likes;
-  final int comments;
+  final int commentSum;
   final int shares;
+  List<Comment>? comment;
 
-  const Post({
-    required this.user,
-    required this.caption,
-    required this.timeAgo,
-     this.imageUrl,
-    required this.likes,
-    required this.comments,
-    required this.shares,
-  });
+  Post(
+      {required this.user,
+      required this.caption,
+      required this.timeAgo,
+      this.imageUrl,
+      required this.likes,
+      required this.commentSum,
+      required this.shares,
+      this.comment});
 }

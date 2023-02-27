@@ -6,9 +6,9 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 class PostContainer extends StatelessWidget {
   final Post post;
-   final Function? call;
-  
-  const PostContainer({super.key, required this.post,this.call});
+  final Function? call;
+
+  const PostContainer({super.key, required this.post, this.call});
 
   @override
   Widget build(BuildContext context) {
@@ -38,16 +38,18 @@ class PostContainer extends StatelessWidget {
           ),
           post.imageUrl != null
               ? InkWell(
-                onTap: (){
-                   if (call != null) {
-                   call!();
-                        }
-                },
-                child: Padding(
+                  onTap: () {
+                    if (call != null) {
+                      call!();
+                    }
+                  },
+                  child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: Hero(tag: "${post.imageUrl}",child: Image(image: NetworkImage("${post.imageUrl}"))),
+                    child: Hero(
+                        tag: "${post.imageUrl}",
+                        child: Image(image: NetworkImage("${post.imageUrl}"))),
                   ),
-              )
+                )
               : const SizedBox.shrink(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -132,14 +134,18 @@ class _PostStats extends StatelessWidget {
             Expanded(child: Text('${post.likes}')),
             GestureDetector(
               onTap: () {
-                showModalBottomSheet<void>(context: context,builder: (BuildContext context){
-                  return  SizedBox(
-                    height: 800,
-                    child: Comments(post: post,),
-                  );
-                });
+                showModalBottomSheet<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return SizedBox(
+                        height: 800,
+                        child: Comments(
+                          post: post,
+                        ),
+                      );
+                    });
               },
-              child: Text('${post.comments} Comments'),
+              child: Text('${post.commentSum} Comments'),
             ),
             const SizedBox(
               width: 9,
