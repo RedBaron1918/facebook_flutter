@@ -1,4 +1,5 @@
 import 'package:facebook_page/models/post.dart';
+import 'package:facebook_page/widgets/comments.dart';
 import 'package:facebook_page/widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -114,7 +115,7 @@ class _PostStats extends StatelessWidget {
         Row(
           children: [
             Container(
-              padding: const EdgeInsets.all(4),
+              padding: const EdgeInsets.all(6),
               decoration: const BoxDecoration(
                 color: Colors.lightBlue,
                 shape: BoxShape.circle,
@@ -129,7 +130,17 @@ class _PostStats extends StatelessWidget {
               width: 4,
             ),
             Expanded(child: Text('${post.likes}')),
-            Text('${post.comments} Comments'),
+            GestureDetector(
+              onTap: () {
+                showModalBottomSheet<void>(context: context,builder: (BuildContext context){
+                  return  SizedBox(
+                    height: 800,
+                    child: Comments(post: post,),
+                  );
+                });
+              },
+              child: Text('${post.comments} Comments'),
+            ),
             const SizedBox(
               width: 9,
             ),

@@ -1,7 +1,7 @@
 import 'package:facebook_page/models/user.dart';
 import 'package:facebook_page/models/post.dart';
 import 'package:facebook_page/models/story.dart';
-
+import 'package:facebook_page/models/comment.dart';
 User currentUser = const User(
   name: 'Kotiko Asatiani',
   imageUrl:
@@ -182,7 +182,7 @@ final List<Post> posts = [
     caption: "kote is right communism is hella gay",
     timeAgo: '3hr',
     imageUrl: null,
-    likes: 683,
+    likes: 1083,
     comments: 79,
     shares: 18,
   ),
@@ -224,4 +224,17 @@ final List<Post> posts = [
     shares: 1941,
     comments: 30000000,
   )
+];
+final List<Comment> comments = [
+  Comment(user: onlineUsers[0], comment: "very cool"),
+  Comment(user: onlineUsers[1], comment: "very cool"),
+  Comment(user: onlineUsers[2], comment: "very cool"),
+  Comment(user: onlineUsers[3], comment: "very cool"),
+  Comment(user: onlineUsers[4], comment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."),
+  Comment(user: onlineUsers[5], comment: "very cool"),
+  Comment(user: onlineUsers[6], comment: "very cool"),
+  Comment(user: onlineUsers[7], comment: "very cool"),
+  Comment(user: onlineUsers[8], comment: "very cool"),
+  Comment(user: onlineUsers[9], comment: "very cool"),
+
 ];

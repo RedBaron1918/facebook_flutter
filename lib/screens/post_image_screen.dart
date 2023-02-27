@@ -26,7 +26,6 @@ class PostImageScreen extends StatelessWidget {
       child:Scaffold(
       backgroundColor: Colors.black12,
       appBar: AppBar(
-        
         title: Text(
           post.user.name,
           style: const TextStyle(fontWeight: FontWeight.bold),
@@ -51,7 +50,6 @@ class PostImageScreen extends StatelessWidget {
         ],
       ),
       body: Material(
-        
         color: Colors.transparent,
         child: Hero(
           tag: "${post.imageUrl}",
@@ -64,6 +62,5 @@ class PostImageScreen extends StatelessWidget {
       ),
     )
     );
-    
   }
 }
