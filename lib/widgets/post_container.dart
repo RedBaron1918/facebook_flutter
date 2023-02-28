@@ -116,7 +116,6 @@ class _PostStats extends StatefulWidget {
 }
 
 class _PostStatsState extends State<_PostStats> {
-  bool stuff = false;
   late Post testing;
   @override
   void initState() {
@@ -173,13 +172,13 @@ class _PostStatsState extends State<_PostStats> {
             _PostButton(
               icon: Icon(
                 MdiIcons.thumbUpOutline,
-                color: stuff ? Colors.blue[300] : Colors.grey[600],
+                color: testing.liked ? Colors.blue[300] : Colors.grey[600],
                 size: 20.0,
               ),
               label: 'Like',
               onTap: () => setState(() {
-                stuff = !stuff;
-                if (stuff) {
+                testing.liked = !testing.liked;
+                if (testing.liked) {
                   testing.likes += 1;
                 } else {
                   testing.likes -= 1;

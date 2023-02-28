@@ -9,6 +9,7 @@ class Post {
   int likes;
   final int commentSum;
   final int shares;
+  bool liked;
   List<Comment>? comment;
 
   Post(
@@ -16,6 +17,7 @@ class Post {
       required this.caption,
       required this.timeAgo,
       this.imageUrl,
+      this.liked = false,
       required this.likes,
       required this.commentSum,
       required this.shares,

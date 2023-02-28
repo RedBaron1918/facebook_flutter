@@ -35,7 +35,6 @@ class _CommentsState extends State<Comments> {
   }
 
   TextEditingController commentController = TextEditingController();
-  bool changecolor = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,12 +84,13 @@ class _CommentsState extends State<Comments> {
               child: InkWell(
                 child: Icon(
                   Icons.thumb_up_alt_outlined,
-                  color: changecolor ? Colors.blue[300] : Colors.grey[400],
+                  color:
+                      widget.post.liked ? Colors.blue[300] : Colors.grey[400],
                 ),
                 onTap: () {
                   setState(() {
-                    changecolor = !changecolor;
-                    if (changecolor) {
+                    widget.post.liked = !widget.post.liked;
+                    if (widget.post.liked) {
                       widget.post.likes += 1;
                     } else {
                       widget.post.likes -= 1;
