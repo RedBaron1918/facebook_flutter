@@ -23,6 +23,17 @@ class _CommentsState extends State<Comments> {
     }
   }
 
+  void _addNewComment(String commentValue) {
+    if (commentValue.isNotEmpty) {
+      var newComment = Comment(user: currentUser, comment: commentValue);
+      setState(() {
+        widget.post.comment!.add(newComment);
+      });
+      commentController.clear();
+      FocusScope.of(context).unfocus();
+    }
+  }
+
   TextEditingController commentController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -86,70 +97,71 @@ class _CommentsState extends State<Comments> {
                 },
               ),
             ),
-            Form(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Expanded(
-                      child: TextFormField(
-                        onFieldSubmitted: (value) {
-                          String commentValue = commentController.text;
-                          if (commentValue.isNotEmpty) {
-                            var newComment = Comment(
-                                user: currentUser, comment: commentValue);
-                            setState(() {
-                              widget.post.comment!.add(newComment);
-                            });
-                            commentController.clear();
-                          }
-                        },
-                        controller: commentController,
-                        decoration: InputDecoration(
-                          hintText: 'Write a comment...',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            borderSide: BorderSide.none,
-                          ),
-                          filled: true,
-                          fillColor: Colors.grey[200],
-                          contentPadding: const EdgeInsets.symmetric(
-                            vertical: 10.0,
-                            horizontal: 12.0,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 8.0),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      child: IconButton(
-                        onPressed: () {
-                          String commentValue = commentController.text;
-                          if (commentValue.isNotEmpty) {
-                            var newComment = Comment(
-                                user: currentUser, comment: commentValue);
-                            setState(() {
-                              widget.post.comment!.add(newComment);
-                            });
-                            commentController.clear();
-                            FocusScope.of(context).unfocus();
-                          }
-                        },
-                        icon: const Icon(Icons.send),
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
+            CommentInput(
+              commentController: commentController,
+              onSubmitted: _addNewComment,
+            )
+          ],
+        ));
+  }
+}
+
+class CommentInput extends StatelessWidget {
+  final TextEditingController commentController;
+  final void Function(String) onSubmitted;
+
+  const CommentInput(
+      {Key? key, required this.commentController, required this.onSubmitted})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Expanded(
+              child: TextFormField(
+                onFieldSubmitted: (value) {
+                  String commentValue = commentController.text;
+                  onSubmitted(commentValue);
+                },
+                controller: commentController,
+                decoration: InputDecoration(
+                  hintText: 'Write a comment...',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    borderSide: BorderSide.none,
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                  contentPadding: const EdgeInsets.symmetric(
+                    vertical: 10.0,
+                    horizontal: 12.0,
+                  ),
                 ),
               ),
             ),
+            const SizedBox(width: 8.0),
+            Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  String commentValue = commentController.text;
+                  onSubmitted(commentValue);
+                },
+                icon: const Icon(Icons.send),
+                color: Colors.white,
+              ),
+            ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
