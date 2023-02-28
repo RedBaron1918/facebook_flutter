@@ -35,13 +35,14 @@ class _CommentsState extends State<Comments> {
   }
 
   TextEditingController commentController = TextEditingController();
+  bool changecolor = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0.3,
-          leadingWidth: 100,
+          leadingWidth: 130,
           backgroundColor: Colors.white,
           leading: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -66,21 +67,38 @@ class _CommentsState extends State<Comments> {
                   _getLikesFormatted(widget.post.likes),
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
-                    fontSize: 10,
-                    color: Colors.black,
-                  ),
+                      fontSize: 12,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
                 ),
+                const Icon(
+                  Icons.arrow_forward_ios_outlined,
+                  color: Colors.black,
+                  size: 12,
+                )
               ],
             ),
           ),
-          actions: const [
+          actions: [
             Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.thumb_up_alt_outlined,
-                color: Colors.grey,
+              padding: const EdgeInsets.all(8.0),
+              child: InkWell(
+                child: Icon(
+                  Icons.thumb_up_alt_outlined,
+                  color: changecolor ? Colors.blue[300] : Colors.grey[400],
+                ),
+                onTap: () {
+                  setState(() {
+                    changecolor = !changecolor;
+                    if (changecolor) {
+                      widget.post.likes += 1;
+                    } else {
+                      widget.post.likes -= 1;
+                    }
+                  });
+                },
               ),
-            )
+            ),
           ],
         ),
         body: Column(

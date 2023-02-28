@@ -1,3 +1,4 @@
+import 'package:facebook_page/data/data.dart';
 import 'package:facebook_page/models/post.dart';
 import 'package:facebook_page/widgets/comments.dart';
 import 'package:facebook_page/widgets/profile_avatar.dart';
@@ -105,10 +106,23 @@ class _PostHeader extends StatelessWidget {
   }
 }
 
-class _PostStats extends StatelessWidget {
+class _PostStats extends StatefulWidget {
   final Post post;
 
   const _PostStats({required this.post});
+
+  @override
+  _PostStatsState createState() => _PostStatsState();
+}
+
+class _PostStatsState extends State<_PostStats> {
+  bool stuff = false;
+  late Post testing;
+  @override
+  void initState() {
+    super.initState();
+    testing = widget.post;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +145,7 @@ class _PostStats extends StatelessWidget {
             const SizedBox(
               width: 4,
             ),
-            Expanded(child: Text('${post.likes}')),
+            Expanded(child: Text('${testing.likes}')),
             GestureDetector(
               onTap: () {
                 showModalBottomSheet<void>(
@@ -140,17 +154,17 @@ class _PostStats extends StatelessWidget {
                       return SizedBox(
                         height: 800,
                         child: Comments(
-                          post: post,
+                          post: testing,
                         ),
                       );
                     });
               },
-              child: Text('${post.commentSum} Comments'),
+              child: Text('${testing.commentSum} Comments'),
             ),
             const SizedBox(
               width: 9,
             ),
-            Text('${post.shares} Shares')
+            Text('${testing.shares} Shares')
           ],
         ),
         const Divider(),
@@ -159,11 +173,18 @@ class _PostStats extends StatelessWidget {
             _PostButton(
               icon: Icon(
                 MdiIcons.thumbUpOutline,
-                color: Colors.grey[600],
+                color: stuff ? Colors.blue[300] : Colors.grey[600],
                 size: 20.0,
               ),
               label: 'Like',
-              onTap: () => print('Like'),
+              onTap: () => setState(() {
+                stuff = !stuff;
+                if (stuff) {
+                  testing.likes += 1;
+                } else {
+                  testing.likes -= 1;
+                }
+              }),
             ),
             _PostButton(
               icon: Icon(
@@ -172,7 +193,18 @@ class _PostStats extends StatelessWidget {
                 size: 20.0,
               ),
               label: 'Comment',
-              onTap: () => print('Comment'),
+              onTap: () {
+                showModalBottomSheet<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return SizedBox(
+                        height: 800,
+                        child: Comments(
+                          post: testing,
+                        ),
+                      );
+                    });
+              },
             ),
             _PostButton(
               icon: Icon(
